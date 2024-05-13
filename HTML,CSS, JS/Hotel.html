@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: rgb(24, 24, 24);
+      color: white;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      font-weight: 100;
+      height: 46rem;
+      box-shadow: inset 10px 20px 380px rgb(0, 0, 0);
+    }
+
+    input[type="number"] {
+      padding: 5px;
+      margin: 1cm;
+      border-radius: 10px;
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .fieldContainer {
+      position: relative;
+      top: 5rem;
+    }
+  </style>
+  <body>
+    <div style="text-align: center; position: relative; top: 5rem">
+      <h1>Sam Veg - Nonveg Hotel</h1>
+      <h2>"Once you taste the food, you will fall in love with Sam Hotel"</h2>
+      <div class="fieldContainer">
+        <label for="menu"
+          ><b>Menu:</b>
+          <select name="menu" id="menu">
+            <option>Choose Menu</option>
+            <option>Tikka Masala</option>
+            <option>Butter Chicken</option>
+            <option>Korma</option>
+            <option>Malai Kofta</option>
+            <option>Mutter Paneer</option>
+          </select>
+        </label>
+        <label for="rate"
+          ><b>Rate:</b>
+          <input type="number" name="rate" id="rate" readonly />
+        </label>
+        <label for="quantity"
+          ><b>Quantity:</b>
+          <input type="number" name="quantity" id="quantity" />
+        </label>
+        <label for="total"
+          ><b>Total:</b>
+          <input type="number" name="total" id="total" readonly />
+        </label>
+      </div>
+
+      <!-- message -->
+      <div
+        id="message"
+        style="
+          position: relative;
+          top: 5rem;
+          font-size: xx-large;
+          font-weight: bold;
+        "
+      ></div>
+    </div>
+  </body>
+  <script>
+    // Event to display rate of menu when selected menu
+    document.getElementById("menu").addEventListener("change", function () {
+      var menu = this.value;
+
+      if (menu == "Tikka Masala") {
+        document.getElementById("rate").value = 250;
+      } else if (menu == "Butter Chicken") {
+        document.getElementById("rate").value = 300;
+      } else if (menu == "Korma") {
+        document.getElementById("rate").value = 275;
+      } else if (menu == "Malai Kofta") {
+        document.getElementById("rate").value = 225;
+      } else {
+        document.getElementById("rate").value = 210.25;
+      }
+
+      document
+        .getElementById("quantity")
+        .addEventListener("change", function () {
+          var qty = this.value;
+          var rate = Number(document.getElementById("rate").value);
+
+          let res = (document.getElementById("total").value = qty * rate);
+          if (qty >= 0) {
+            (document.getElementById("message").innerHTML = `Your Total ammount for ${menu} is ${res}`);
+          }
+        });
+    });
+
+</script>
+</html>

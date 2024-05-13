@@ -1,0 +1,101 @@
+TASK1-
+
+--CREATE TABLE GUIDE(SUBJECT VARCHAR(10),ADVISOR VARCHAR(10));
+
+-- INSERT INTO GUIDE VALUES('PHYSICS','ALOK'),('COMP SC', 'RAJAN'),('CHEMISTRY','MANJU'),('MATHS','SMITA'),('HISTORY','KISHOR');
+
+-- SELECT S.NAME,S.SUBJECT, G.ADVISOR FROM
+-- STUDENT AS S, GUIDE AS G
+-- WHERE  S.SUBJECT=G.SUBJECT ;
+
+-- SELECT  S.NAME, G.ADVISOR FROM
+-- STUDENT AS S, GUIDE AS G
+-- WHERE  G.SUBJECT=S.SUBJECT AND S.SUBJECT IN ('PHYSICS','CHEMISTRY');
+
+
+
+TASK 2-
+
+
+-- create table Visitor(VisitorID int,VisitorName varchar(20),Gender varchar(10),ComingFrom varchar(12),AmountPaid int);
+
+-- insert into Visitor values(1,'Suman','F','Kapur',2500),(2,'indu','F','lucknow',3000),(3,'Rachana','F','Haryana',2000),(4,'Vikram','M','Kapur',4000),(5,'Rajesh','M','Kapur',3000),(6,'Suresh','M','Alahabad',3600),(7,'Dinesh','M','Lucknow',null),(8,'Shikha','F','Varanasi',5000);
+
+
+-- select visitorname, comingfrom from visitor where amountpaid>3000 and gender='F';
+
+-- select distinct comingfrom from visitor; 
+
+ -- insert into visitor values(7,'Shilpa', 'F','Lucknow', 3000);
+		
+		OR
+
+-- update visitor 
+-- set visitorname="Shilpa", gender="F", comingfrom="Lucknow",amountpaid=3000
+-- where visitorid=7;
+
+-- select * from visitor order by amountpaid desc;
+
+-- select visitorname from visitor where gender="M";
+
+-- select (amountpaid+200) from visitor where visitorid=6;
+
+-- select SUM(AmountPaid) as Total from visitor where comingfrom='kanpur';
+
+
+-- select count(visitorname) from visitor where AmountPaid is null; 
+
+
+
+
+TASK 3-
+
+
+
+-- create table TRAINS(TNO int,TNAME varchar(15),START varchar(15),END varchar(15));
+
+-- insert into TRAINS values(11096,'Ahimsa Express','Pune Junction','Ahmedabad Junction'),
+-- (12015,'Ajmer Shatabdi','New Delhi','Ajmer Junction'),
+-- (1651,'Pune Hbj Special','Pune Junction','Habibganj'),
+-- (13005,'Amritsar Mail','Howrah Junction','Amritsar Junction'),
+-- (12002,'Bhopal Shatabdi','New Delhi','Habibganj'),
+-- (12417,'Prayag Raj Express','Allahabad Junction','New Delhi'),
+-- (14673,'Shaheed Express','Jaynagar','Amritsar Junction'),
+-- (12314,'Sealdah Rajdhani','New Delhi','Sealdah'),
+-- (12498,'Shane Punjab','Amritsar Junction','New Delhi'),
+-- (12451,'Shram Shakti Express','Kanpur Junction','New Delhi'),
+-- (12030,'Swarna Shatabdi','Amritsar Junction','New Delhi');
+
+
+
+-- create table PASSENGER(PNR VARCHAR(5), TNO INT, PNAME VARCHAR(20),	GENDER VARCHAR(8), AGE INT,	TRAVELDATE DATE );
+
+
+-- insert into PASSENGER values('P001' ,13005,'R N AGRAWAL','MALE',45,'2018-12-25'),
+-- ('P002',12015,'P TIWARY','MALE',28,'2018-11-10'),
+-- ( 'P003',12015,'S TIWARY','FEMALE',22,'2018-11-10'),
+-- ('P004',12030,'SK SAXENA','MALE',42,'2018-10-12'),
+-- ('P005',12030,'S SAXENA','FEMALE',35,'2018-10-12'),
+-- ('P006',12030,'P SAXENA','FEMALE',12,'2018-10-12'),
+-- ('P007',13005,'NS SINGH','MALE',52,'2018-05-09'),
+-- ('P008',12030,'JK SHARMA','MALE',65,'2018-05-09'),
+-- ('P009',12030,'R SHARMA','FEMALE',58,'2018-05-09');
+
+
+-- select * from TRAINS where start='New Delhi'; 
+
+-- select PNR, PNAME, GENDER, AGE from PASSENGER where age<50; 
+
+-- select GENDER,count() from PASSENGER group by GENDER;
+
+-- select * from PASSENGER where TNO=12015;
+
+-- select MAX(TRAVELDATE),MIN(TRAVELDATE) from PASSENGER where GENDER='Female';
+
+-- select END, count(*) from TRAINS group by END having count(*)>1;
+
+-- select distinct TRAVELDATE from PASSENGER;
+
+-- select TNAME, PNAME FROM 
+-- TRAINS T, PASSENGER P 
+-- WHERE T.TNO=P.TNO and AGE BETWEEN 50 AND 60;

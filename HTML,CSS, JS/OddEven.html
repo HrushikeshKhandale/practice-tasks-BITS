@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odd-Even</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <h1>Find the odd and even Numbers</h1>
+      <!-- Labels below to indicate fields  -->
+
+      <label for="enterNum"
+        >Enter Number:
+
+        <!-- Get input value from user -->
+        <input type="text" name="number" id="number" />
+      </label>
+      <label for="result"
+        >Your number is
+
+        <!-- Result will display in given field -->
+        <input type="text" name="result" id="result"  readonly/>
+      </label>
+
+      <!-- Button to get result if even or odd -->
+      <button id="submitBtn">Submit</button>
+    </div>
+  </body>
+  <!-- Scripts -->
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      let val = Number(document.getElementById("number").value);
+
+      // Check if given input is even or odd
+      if (val % 2 == 0) {
+        return (document.getElementById("result").value = "even"); 
+      } else {
+        return (document.getElementById("result").value = "odd");
+      }
+    });
+
+  </script>
+</html>

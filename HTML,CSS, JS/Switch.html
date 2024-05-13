@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Switch</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    input {
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px;
+    }
+  </style>
+  <body>
+    <div style="position: relative; top: 5rem">
+      <h1>Switch in Javascript</h1>
+      <input type="text" id="color" placeholder="Enter color" />
+      <label for="result">
+        <button id="resultBtn">Find Code</button>
+        <input type="text" name="result" id="result" />
+      </label>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      document.getElementById("resultBtn").addEventListener("click", () => {
+        let colorValue = document.getElementById("color").value;
+
+        console.log(colorValue);
+
+        switch (colorValue.toLowerCase()) {
+          case "red":
+            document.getElementById("result").value = "Monday";
+            break;
+          case "orange":
+            document.getElementById("result").value = "Tuesday";
+            break;
+          case "yellow":
+            document.getElementById("result").value = "Wednesday";
+            break;
+          case "blue":
+            document.getElementById("result").value = "Thursday";
+            break;
+          case "green":
+            document.getElementById("result").value = "Friday";
+            break;
+          case "indigo":
+            document.getElementById("result").value = "Saturday";
+            break;
+          case "violet":
+            document.getElementById("result").value = "Sunday";
+            break;
+          default:
+            if (colorValue.trim() == "") {
+              alert("Type color in text field");
+            } else {
+              alert(
+                "Red, orange, yellow, green, blue, indigo and violet are only colors  allowed to type here."
+              );
+            }
+        }
+      });
+    </script>
+  </body>
+</html>

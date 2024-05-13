@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marksheet</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    input[type="number"] {
+      margin: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <!-- Marksheet Heading -->
+      <h1>Marksheet</h1>
+
+      <!-- Subject input fields -->
+      <div class="subjectFields">
+        <label for="subject1"
+          >Subject 1:
+          <input type="number" name="subject1" id="subject1" />
+        </label>
+        <label for="subject2"
+          >Subject 2:
+          <input type="number" name="subject2" id="subject2" />
+        </label>
+        <label for="subject3"
+          >Subject 3:
+          <input type="number" name="subject3" id="subject3" />
+        </label>
+      </div>
+
+      <!-- Button and input field to display percentage  -->
+      <div class="percentageFields">
+        <button id="percentageBtn">Percentage</button>
+
+        <label for="percentage"
+          >Percentage:
+          <input type="number" name="percentage" id="percentage" />
+        </label>
+      </div>
+
+      <!-- Grade -->
+      <div class="gradeFields">
+        <button id="gradeBtn">Grade</button>
+
+        <label for="grade"
+          >Grade:
+          <input type="text" name="grade" id="grade" />
+        </label>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      //event to display percentage
+      document.getElementById("percentageBtn").addEventListener("click", () => {
+        let subject1 = Number(document.getElementById("subject1").value);
+        let subject2 = Number(document.getElementById("subject2").value);
+        let subject3 = Number(document.getElementById("subject3").value);
+
+        let totalMarks = subject1 + subject2 + subject3;
+        let percentage = (totalMarks / 300) * 100;
+
+        if(percentage>100){
+
+          document.getElementById("percentage").value = "";
+        }else{
+          document.getElementById("percentage").value = percentage;
+
+        }
+
+        // Grade
+        document.getElementById("gradeBtn").addEventListener("click", () => {
+          if (percentage > 86 && percentage <= 100) {
+            document.getElementById("grade").value = "Great: Grade A";
+          } else if (percentage >= 71 && percentage <= 85) {
+            document.getElementById("grade").value = "Exellent: Grade B";
+          } else if (percentage >= 61 && percentage <= 70) {
+            document.getElementById("grade").value = "Good work: Grade C";
+          } else if (percentage >= 55 && percentage <= 60) {
+            document.getElementById("grade").value = "Good: Grade D";
+          } else if (percentage >= 36 && percentage <= 50) {
+            document.getElementById("grade").value = "Work Hard: Grade E";
+          } else {
+            if (percentage > 100) {
+              document.getElementById("grade").value = "  ";
+            } else {
+              document.getElementById("grade").value =
+                "Better luck next time: Fail";
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

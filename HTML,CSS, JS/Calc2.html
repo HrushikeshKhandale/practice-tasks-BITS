@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    .calc {
+      position: relative;
+      left: 44%;
+    }
+
+    input {
+      padding: 8px;
+    }
+
+    .btns {
+      position: relative;
+      top: 1rem;
+      right: 5.1rem;
+      padding: 5px;
+    }
+
+    .btns button {
+      margin: 5px;
+      padding: 8px;
+    }
+
+    .reset {
+      position: relative;
+      top: 2rem;
+    }
+  </style>
+  <body>
+    <h1>We are doing the calculation here</h1>
+    <!-- Calculator -->
+    <div class="calc">
+      <!-- Two text fields -->
+      <div class="texts1">
+        <input type="number" id="number1" />
+        <br /><br /><br />
+        <input type="number" id="number2" />
+      </div>
+
+      <!-- Buttons -->
+      <div class="btns">
+        <button id="addition">Addition</button>
+        <button id="multiply">Multiply</button>
+        <button id="subtraction">Subtraction</button>
+        <button id="division">Division</button>
+      </div>
+      <!-- Reset section -->
+      <div class="reset">
+        <input type="text" id="result" />
+        <input id="clear" type="reset" style="padding: 8px; width: 2cm" />
+      
+        </div>
+
+      <!-- Number Keys -->
+      <div style="position: relative; top: 3rem; right: 2rem;">
+        <button class="numKeys" value="1" onclick="document.getElementById('number1').value += 1" id="one">1</button>
+        <button class="numKeys"  value="2" onclick="document.getElementById('number1').value += 2" id="two">2</button>
+        <button class="numKeys" value="3" id="three" onclick="document.getElementById('number1').value += 3">3</button>
+        <button class="numKeys" value="4" id="four" onclick="document.getElementById('number1').value += 4">4</button>
+        <button class="numKeys" value="5" id="five" onclick="document.getElementById('number1').value += 5">5</button>
+        <button class="numKeys" value="6" id="six" onclick="document.getElementById('number1').value += 6">6</button>
+        <button class="numKeys" value="7" id="seven" onclick="document.getElementById('number1').value += 7">7</button>
+        <button class="numKeys" value="8" id="eight" onclick="document.getElementById('number1').value += 8">8</button>
+        <button class="numKeys" value="9" id="nine" onclick="document.getElementById('number1').value += 9">9</button>
+        <button class="numKeys" value="0" id="zero" onclick="document.getElementById('number1').value += 9">0</button>
+      </div>
+      <!-- <div style="position: relative;  bottom: 8.7rem; left: 15rem">
+        <button class="numKeys" value="1" onclick="document.getElementById('number2').value += 1" id="one">1</button>
+        <button class="numKeys"  value="2" onclick="document.getElementById('number2').value += 2" id="two">2</button>
+        <button class="numKeys" value="3" id="three" onclick="document.getElementById('number2').value += 3">3</button>
+        <button class="numKeys" value="4" id="four" onclick="document.getElementById('number2').value += 4">4</button>
+        <button class="numKeys" value="5" id="five" onclick="document.getElementById('number2').value += 5">5</button>
+        <button class="numKeys" value="6" id="six" onclick="document.getElementById('number2').value += 6">6</button>
+        <button class="numKeys" value="7" id="seven" onclick="document.getElementById('number2').value += 7">7</button>
+        <button class="numKeys" value="8" id="eight" onclick="document.getElementById('number2').value += 8">8</button>
+        <button class="numKeys" value="9" id="nine" onclick="document.getElementById('number2').value += 9">9</button>
+        <button class="numKeys" value="0" id="zero" onclick="document.getElementById('number2').value += 9">0</button>
+      </div>
+    </div> -->
+  </body>
+  <script>
+    // operators
+    const Addition = document.getElementById("addition");
+    const Multiply = document.getElementById("multiply");
+    const Subtraction = document.getElementById("subtraction");
+    const Division = document.getElementById("division");
+    const Clear = document.getElementById("clear");
+
+    //   Reset
+    Clear.addEventListener("click", () => {
+      document.getElementById("number1").value = "";
+      document.getElementById("number2").value = "";
+      document.getElementById("result").value = "";
+    });
+
+    // Addition
+    Addition.addEventListener("click", () => {
+      let x = Number(document.getElementById("number1").value);
+      let y = Number(document.getElementById("number2").value);
+      if (isNaN(x) || isNaN(y)) {
+        alert("Please enter valid number");
+      } else {
+        return (document.getElementById("result").value = x + y);
+      }
+    });
+
+    // Multiplication
+    Multiply.addEventListener("click", () => {
+      let x = Number(document.getElementById("number1").value);
+      let y = Number(document.getElementById("number2").value);
+      if (isNaN(x) || isNaN(y)) {
+        alert("Please enter valid number");
+      } else {
+        return (document.getElementById("result").value = x * y);
+      }
+    });
+
+    // Subtraction
+    Subtraction.addEventListener("click", () => {
+      let x = Number(document.getElementById("number1").value);
+      let y = Number(document.getElementById("number2").value);
+      if (isNaN(x) || isNaN(y)) {
+        alert("Please enter valid number");
+      } else {
+        return (document.getElementById("result").value = x - y);
+      }
+    });
+
+    // Division
+    Division.addEventListener("click", () => {
+      let x = Number(document.getElementById("number1").value);
+      let y = Number(document.getElementById("number2").value);
+      if (isNaN(x) || isNaN(y)) {
+        alert("Please enter valid number");
+      } else {
+        return (document.getElementById("result").value = x / y);
+      }
+    });
+
+    
+    
+
+  </script>
+</html>

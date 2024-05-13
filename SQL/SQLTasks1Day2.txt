@@ -1,0 +1,24 @@
+--create table ACCOUNT(ANO int,ANAME varchar(20),ADDRESS varchar(30));
+--insert into ACCOUNT values(101,'Nirja Singh','Bangalore'),(102,'Rohan Gupta','Chennai'),(103,'Ali Reza','Hyderabad'),(104,'Rishabh Jain','Chennai'),(105,'Simran Kaur','Chandigarh');
+
+--create table TRANSACT(TRNO varchar(10),ANO int,AMOUNT int,TYPE varchar(10),DOT DATE);
+
+--insert into transact values('T001',101,2500,'Withdraw','2017-12-21'),('T002',103,3000,'Deposit','2017-06-01'),('T003',102,2000,'Withdraw','2017-05-12'),('T004',103,1000,'Deposit','2017-10-22'),('T005',102,12000,'Deposit','2017-11-06');
+
+--select * from transact where type="Withdraw";
+
+
+--select ANO,AMOUNT from TRANSACT where dot like "%-05-%";
+
+--select dot from transact where ano=102 limit 1;
+
+--select A.ano,A.aname,T.amount,T.dot from 
+--ACCOUNT as A,  TRANSACT as T 
+--where A.ano=T.ano and amount<=3000;
+
+--select ANO, ANAME from ACCOUNT where ADDRESS not in('Chennai','Bangalore');
+
+--select distinct ANO from TRANSACT;
+
+--select ANO, count(*), min(AMOUNT) from TRANSACT group by ANO having count(*)>1
+

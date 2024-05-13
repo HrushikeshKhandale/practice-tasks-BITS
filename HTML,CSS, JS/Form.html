@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      background-color: rgb(230, 230, 230);
+      text-transform: uppercase;
+    }
+
+    input {
+      display: flex;
+      margin: 1rem 0 1rem 9rem;
+      padding: 10px;
+      border-radius: 5px;
+      position: relative;
+      bottom: 2.5rem;
+    }
+
+    button {
+      position: relative;
+      left: 38%;
+      margin-top: 3rem;
+      border-radius: 5px;
+      height: 3rem;
+      width: 8rem;
+      cursor: pointer;
+      background: rgb(0, 0, 0);
+      color: white;
+    }
+
+    button:hover {
+      box-shadow: 1px 2px 15px rgb(0, 0, 0);
+      transition: all 0.2s ease-in-out;
+    }
+
+    form {
+      width: 45rem;
+      background-color: #f3f3f3;
+      padding: 1rem 3rem 3rem 3rem;
+      position: relative;
+      margin: 2rem 0;
+      box-shadow: 1px 2px 15px rgb(194, 194, 194);
+      left: 22rem;
+      border-radius: 1.5rem;
+    }
+  </style>
+  <body>
+    <div style="height: 3rem; width: 100%; background-color: black"></div>
+    <form onsubmit="formValidation()">
+      <h1
+        style="
+          display: flex;
+          justify-content: center;
+          margin-bottom: 3rem;
+          text-shadow: 2px 2px 5px gray;
+        "
+      >
+        Registration Form
+      </h1>
+      <!-- name -->
+      <label for="fullname">
+        Full Name: <span style="color: red">*</span></label
+      >
+      <input type="text" name="fullname" id="fullname" />
+
+      <!-- email -->
+      <label for="age"
+        >Age: <span style="color: red">*</span>
+        <input type="tex" name="age" id="age" />
+      </label>
+
+      <!--genders  -->
+      <label for="gender"
+        >Genders: <span style="color: red">*</span>
+        <br />
+        <br />
+        <div class="genders" style="display: flex; margin: 2rem 0">
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            value="Male"
+            name="gender"
+            id="male"
+            style="position: relative; right: 8rem; bottom: 0.7rem"
+          />
+
+          <label for="female">Female </label>
+          <input
+            type="radio"
+            value="Female"
+            name="gender"
+            id="female"
+            style="position: relative; right: 8rem; bottom: 0.7rem"
+          />
+        </div>
+      </label>
+
+      <!-- address -->
+      <label for="address"
+        >Address: <span style="color: red">*</span>
+        <input type="text" name="address" id="address" />
+      </label>
+
+      <!-- mobile no-->
+      <label for="mobile"
+        >Mobile No: <span style="color: red">*</span>
+        <input type="tel" name="mobile" id="mobile" maxlength="10" />
+      </label>
+
+      <!-- courses -->
+
+      <label for="course" style="position: absolute; left: 30rem"
+        >Course: <span style="color: red">*</span>
+
+        <select
+          name="course"
+          id="course"
+          style="margin-left: 3rem; height: 2rem; width: 6rem"
+        >
+          <option>Select...</option>
+          <option value="MCA">MCA</option>
+          <option value="MBA">MBA</option>
+          <option value="M.Tech">M. Tech</option>
+          <option value="Engineering">Engineering</option>
+        </select>
+      </label>
+
+      <!-- email -->
+      <label for="email"
+        >Email: <span style="color: red">*</span>
+        <input type="email" name="email" id="email" />
+      </label>
+
+      <!-- password -->
+      <label for="password"
+        >Password: <span style="color: red">*</span>
+        <input type="password" name="password" id="password" />
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+  <script>
+    function formValidation() {
+      event.preventDefault();
+
+      // Name field validation
+      let nameInput = document.getElementById("fullname").value;
+      if (nameInput.trim() === "") {
+        alert("Name field cannot be empty");
+        return false;
+      }
+
+      let nameRegex = /^[a-zA-Z\s]+$/;
+      if (!nameRegex.test(nameInput)) {
+        alert("Name field should not contain numbers or special characters");
+        return false;
+      }
+
+      // Age validation
+      let age = document.getElementById("age").value;
+
+      if (isNaN(age) || age.trim() === "") {
+        alert("Age should contain valid numbers only");
+        return false;
+      }
+
+      // Gender validation
+      let genderInputs = document.getElementsByName("gender");
+      let genderSelected = false;
+      for (let genderInput of genderInputs) {
+        if (genderInput.checked) {
+          genderSelected = true;
+          break;
+        }
+      }
+
+      if (!genderSelected) {
+        alert("Please select a gender");
+        return false;
+      }
+
+      // Address validation
+      let addressInput = document.getElementById("address").value;
+      if (addressInput.trim() === "") {
+        alert("Address field cannot be empty");
+        return false;
+      }
+
+      // Course validation
+      let course = document.getElementById("course").value;
+      if (course === "Select...") {
+        alert("Please select a course");
+        return false;
+      }
+
+      // Mobile Number validation
+      let mobileNumber = document.getElementById("mobile").value;
+      if (mobileNumber.trim() === "") {
+        alert("Mobile field cannot be empty");
+        return false;
+      }
+
+      if (isNaN(mobileNumber)) {
+        alert("Entered value is not a number");
+        return false;
+      }
+
+      // Email validation
+      let email = document.getElementById("email").value;
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Invalid email address");
+        return false;
+      }
+
+      // Password validation
+      let password = document.getElementById("password").value;
+      if (password.trim() === "") {
+        alert("Password field cannot be empty");
+        return false;
+      }
+
+      //   If the form passes all the condtions then return true
+      alert("Form Submitted");
+      setTimeout(() => {
+        console.log({
+          nameInput,
+          age,
+          genderSelected,
+          addressInput,
+          mobileNumber,
+          course,
+          email,
+          password,
+        });
+      }, 5000);
+      location.reload(true);
+
+      return true;
+    }
+  </script>
+</html>

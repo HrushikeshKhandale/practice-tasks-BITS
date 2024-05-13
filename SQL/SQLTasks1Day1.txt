@@ -1,0 +1,85 @@
+1--select *from employee order by doj desc;
+
+2--select name,desig from employee where sgrade like '%s02%' or sgrade like '%s03%';
+
+3--SELECT DISTINCT SGRADE, COUNT(1) FROM EMPLOYEE  GROUP BY SGRADE;
+
+4--select sgrade,salary,(salgrade.salary * 12) as Annual_Salary from salgrade;
+
+5--SELECT E.NAME, E.DESIG,S.SALARY,S.HRA FROM 
+--EMPLOYEE AS E, SALGRADE AS S
+--WHERE E.SGRADE=S.SGRADE AND  S.SALARY<50000;
+
+6--select doj,dob from employee order by doj desc ;
+
+7--select min(doj) , max(dob) from employee;
+
+8--select sgrade,(salary+hra) as sah  from salgrade where sgrade='S02';
+
+9--select count(distinct sgrade) from employee;
+
+10--select sum(salary), avg(salary) from salgrade;
+
+11--select *from employee order by doj desc;
+
+12--select name,desig from employee where sgrade like '%s02%' or sgrade like '%s03%';
+
+13--SELECT DISTINCT SGRADE, COUNT(1) FROM EMPLOYEE  GROUP BY SGRADE;
+
+14--select sgrade,salary,(salgrade.salary * 12) as Annual_Salary from salgrade;
+
+15--SELECT E.NAME, E.DESIG,S.SALARY,S.HRA FROM 
+--EMPLOYEE AS E, SALGRADE AS S
+--WHERE E.SGRADE=S.SGRADE AND  S.SALARY<50000;
+
+16--select doj,dob from employee order by doj desc ;
+
+17--select min(doj) , max(dob) from employee;
+
+19--select sgrade,(salary+hra) as sah  from salgrade where sgrade='S02';
+
+20--select count(distinct sgrade) from employee;
+
+21--select sum(salary), avg(salary) from salgrade;
+
+
+22--create table item(ICode,IName,Price,Color,VCode);
+--insert into  item values('S001','Mobile Phones',30000,'Silver','P01'),('S002','Refrigerator',20000,'Cherry','P02'),('S003','TV',45000,'Black','P03'),('S004','Washing Machine',12000,'White','P04'),('S005','Air Conditioner',50000,'White','P05');
+
+23--create table Vendor(VCode,VName);
+--insert into Vendor values ('P01','Rahul'),('P02','Mukesh'),('P03','Rohan'),('P04','Kapil');
+
+24--select I.icode,I.iname,V.vname from
+--item as I , vendor as V
+--where  V.vcode=I.vcode and Iname='Refrigerator'; 
+
+
+25--select I.iname,I.icode,v.vname ,price  from 
+--item as I, vendor as V
+--where I.vcode=V.vcode and price>=23000 ;
+
+
+
+26--select I.iname,v.vname ,price  from 
+--item as I, vendor as V
+--where I.vcode=V.vcode and V.vcode=="P04"; 
+
+
+27--create table Doctors(DocID,DocName,Department,NoofOpdDays);
+--insert into Doctors values(101,'J K Mishra','Ortho',3),(102,'Mahesh Tripathi','ENT',4),(103,'Ravi Kumar','Neuro',5),(104,'Mukesh Jain','Physio',3);
+
+28--create table Patients(PatNo,PatName,Department,DocID);
+--insert into Patients values(1,'Payal','ENT',102),(2,'Naveen','Ortho',101),(3,'Rakesh','Neuro',103),(4,'Atul','Physio',104);
+
+29--select P.patno,P.patname,D.docname from
+--patients as P, doctors as D
+--where P.docid=D.docid ;
+
+
+30--select * from doctors where noofopddays>3;
+
+31--select D.docname,D.department,D.docid,P.patname from
+--patients as P, doctors as D
+--where  P.docid=D.docid and D.docid=101 or D.docid=103 and D.department=P.department ;
+
+32--select distinct department,count() from patients group by department ;

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odd-Even</title>
+  </head>
+  <style></style>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <h1>
+        We get the odd even no of given input range by clicking the buttons.
+      </h1>
+
+      <input type="number" id="fromRange" />
+
+      <input type="number" id="toRange" />
+
+      <!-- Button to get result ranges of even or odd -->
+      <div class="btns" style="padding: 10px">
+        <button onclick="even()" id="evenBtn">Get Even no.</button>
+        <button onclick="odd()" id="oddBtn">Get Odd no.</button>
+      </div>
+      <div id="result"></div>
+    </div>
+  </body>
+  <!-- Scripts -->
+  <script>
+    // function to clear input fields
+    const clear = () => {
+      document.getElementById("result").innerHTML = "";
+    };
+
+    // EVEN
+    document.getElementById("evenBtn").addEventListener("click", () => {
+      clear();
+      const start = Number(document.getElementById("fromRange").value);
+      const end = Number(document.getElementById("toRange").value);
+
+      if (start == 0 && end == 0) {
+        alert("Please enter numbers");
+      } else {
+        document.getElementById("result").innerHTML = "Even Numbers:";
+        for (let i = start; i <= end; i++) {
+          // to check number is even
+          if (i % 2 === 0) {
+            document.getElementById("result").innerHTML += " " + i;
+          }
+        }
+      }
+    });
+
+    // ODD
+    document.getElementById("oddBtn").addEventListener("click", () => {
+      clear();
+
+      const start = Number(document.getElementById("fromRange").value);
+      const end = Number(document.getElementById("toRange").value);
+
+      if (start == 0 && end == 0) {
+        alert("Please enter numbers");
+      } else {
+        document.getElementById("result").innerHTML = "Odd Numbers:";
+
+        for (let i = start; i <= end; i++) {
+          // to check number is odd
+          if (i % 2 !== 0) {
+            document.getElementById("result").innerHTML += " " + i;
+          }
+        }
+      }
+    });
+  </script>
+</html>
